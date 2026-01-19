@@ -11,9 +11,7 @@ clusterGroup:
     - openshift-serverless:
         operatorGroup: true
         targetNamespaces: []
-    - openshift-local-storage:
-        operatorGroup: true
-        targetNamespaces: []
+    - openshift-local-storage
 
   subscriptions:
     serverless:
