@@ -11,6 +11,9 @@ clusterGroup:
     - openshift-serverless:
         operatorGroup: true
         targetNamespaces: []
+    - openshift-local-storage:
+        operatorGroup: true
+        targetNamespaces: []
 
   subscriptions:
     serverless:
@@ -22,6 +25,9 @@ clusterGroup:
     rhoai:
       name: rhods-operator
       namespace: redhat-ods-operator
+    local-storage:
+      name: local-storage-operator
+      namespace: openshift-local-storage
 
   applications:
     golang-external-secrets:
