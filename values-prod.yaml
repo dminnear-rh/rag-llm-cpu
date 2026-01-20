@@ -5,6 +5,8 @@ clusterGroup:
     - rag-llm-cpu
     - vault
     - golang-external-secrets
+    - openshift-nfd
+    - nvidia-gpu-operator
     - redhat-ods-operator:
         operatorGroup: true
         targetNamespaces: []
@@ -17,6 +19,13 @@ clusterGroup:
           - openshift-storage
 
   subscriptions:
+    nfd:
+      name: nfd
+      namespace: openshift-nfd
+    nvidia:
+      name: gpu-operator-certified
+      namespace: nvidia-gpu-operator
+      source: certified-operators
     serverless:
       name: serverless-operator
       namespace: openshift-serverless
@@ -42,6 +51,16 @@ clusterGroup:
       namespace: vault
       chart: hashicorp-vault
       chartVersion: 0.1.*
+
+    nfd:
+      name: nfd
+      namespace: openshift-nfd
+      path: charts/nfd
+
+    nvidia-config:
+      name: nvidia-config
+      namespace: nvidia-gpu-operator
+      path: charts/nvidia-config
 
     lvms:
       name: lvms
