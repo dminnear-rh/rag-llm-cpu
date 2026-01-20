@@ -40,6 +40,11 @@ clusterGroup:
       chart: hashicorp-vault
       chartVersion: 0.1.*
 
+    lso:
+      name: lso
+      namespace: openshift-local-storage
+      path: charts/lso
+
     rag-llm-frontend:
       name: rag-llm-frontend
       namespace: rag-llm-cpu
