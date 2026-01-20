@@ -11,7 +11,10 @@ clusterGroup:
     - openshift-serverless:
         operatorGroup: true
         targetNamespaces: []
-    - openshift-local-storage
+    - openshift-storage:
+        operatorGroup: true
+        targetNamespaces:
+          - openshift-storage
 
   subscriptions:
     serverless:
@@ -23,9 +26,9 @@ clusterGroup:
     rhoai:
       name: rhods-operator
       namespace: redhat-ods-operator
-    local-storage:
-      name: local-storage-operator
-      namespace: openshift-local-storage
+    lvms:
+      name: lvms-operator
+      namespace: openshift-storage
 
   applications:
     golang-external-secrets:
@@ -40,10 +43,10 @@ clusterGroup:
       chart: hashicorp-vault
       chartVersion: 0.1.*
 
-    lso:
-      name: lso
-      namespace: openshift-local-storage
-      path: charts/lso
+    lvms:
+      name: lvms
+      namespace: openshift-storage
+      path: charts/lvms
 
     rag-llm-frontend:
       name: rag-llm-frontend
