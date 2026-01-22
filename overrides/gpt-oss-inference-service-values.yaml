@@ -12,7 +12,7 @@ inferenceService:
 
 servingRuntime:
   name: gpt-oss-runtime
-  image: quay.io/modh/vllm:rhoai-2.22-cuda
+  image: quay.io/modh/vllm:rhoai-2.20-cuda
   modelFormat: vLLM
   args:
     - --model=/models
