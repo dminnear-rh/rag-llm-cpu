@@ -39,6 +39,8 @@ spec:
           value: all
         - name: NVIDIA_DRIVER_CAPABILITIES
           value: all
+        - name: VLLM_TARGET_DEVICE
+          value: cuda
       ports:
         - containerPort: {{ .Values.servingRuntime.port }}
           protocol: TCP
