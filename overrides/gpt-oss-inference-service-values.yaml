@@ -12,10 +12,10 @@ inferenceService:
 
 servingRuntime:
   name: gpt-oss-runtime
-  image: quay.io/modh/vllm:rhoai-2.20-cuda
-  modelFormat: vLLM
+  image: kserve/huggingfaceserver:latest
+  modelFormat: huggingface
   args:
-    - --model=/models
+    - --model_dir=/models
 
 model:
   repository: openai/gpt-oss-120b
