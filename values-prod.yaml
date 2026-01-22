@@ -90,9 +90,9 @@ clusterGroup:
       chart: llm-inference-service
       chartVersion: 0.3.*
 
-    gpt-oss-inference-service:
-      name: gpt-oss-inference-service
-      namespace: rag-llm-cpu
-      path: charts/inference-service
-      extraValueFiles:
-        - $patternref/overrides/gpt-oss-inference-service-values.yaml
+    # gpt-oss-inference-service:
+    #   name: gpt-oss-inference-service
+    #   namespace: rag-llm-cpu
+    #   path: charts/inference-service
+    #   extraValueFiles:
+    #     - $patternref/overrides/gpt-oss-inference-service-values.yaml
