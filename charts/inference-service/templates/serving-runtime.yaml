@@ -31,6 +31,12 @@ spec:
             secretKeyRef:
               name: huggingface-secret
               key: token
+        - name: VLLM_DEVICE
+          value: cuda
+        - name: VLLM_CACHE
+          value: /tmp/vllm_cache
+        - name: VLLM_CONFIG_ROOT
+          value: /tmp/vllm
       ports:
         - containerPort: {{ .Values.servingRuntime.port }}
           protocol: TCP

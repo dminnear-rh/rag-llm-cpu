@@ -4,11 +4,11 @@ inferenceService:
     requests:
       cpu: "16"
       memory: 32Gi
-      nvidia.com/gpu: "1"
+      nvidia.com/gpu: "2"
     limits:
       cpu: "16"
       memory: 32Gi
-      nvidia.com/gpu: "1"
+      nvidia.com/gpu: "2"
 
 servingRuntime:
   name: gpt-oss-runtime
@@ -17,3 +17,4 @@ servingRuntime:
   args:
     - --model_name=gpt-oss-120b
     - --model_id=openai/gpt-oss-120b
+    - --tensor-parallel-size=2
