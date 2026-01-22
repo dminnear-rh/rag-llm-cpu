@@ -43,60 +43,60 @@ clusterGroup:
       name: lvms-operator
       namespace: openshift-storage
 
-  applications:
-    golang-external-secrets:
-      name: golang-external-secrets
-      namespace: golang-external-secrets
-      chart: golang-external-secrets
-      chartVersion: 0.1.*
+  applications: {}
+    # golang-external-secrets:
+    #   name: golang-external-secrets
+    #   namespace: golang-external-secrets
+    #   chart: golang-external-secrets
+    #   chartVersion: 0.1.*
 
-    vault:
-      name: vault
-      namespace: vault
-      chart: hashicorp-vault
-      chartVersion: 0.1.*
+    # vault:
+    #   name: vault
+    #   namespace: vault
+    #   chart: hashicorp-vault
+    #   chartVersion: 0.1.*
 
-    nfd:
-      name: nfd
-      namespace: openshift-nfd
-      path: charts/nfd
+    # nfd:
+    #   name: nfd
+    #   namespace: openshift-nfd
+    #   path: charts/nfd
 
-    nvidia-config:
-      name: nvidia-config
-      namespace: nvidia-gpu-operator
-      path: charts/nvidia-config
+    # nvidia-config:
+    #   name: nvidia-config
+    #   namespace: nvidia-gpu-operator
+    #   path: charts/nvidia-config
 
-    lvms:
-      name: lvms
-      namespace: openshift-storage
-      path: charts/lvms
+    # lvms:
+    #   name: lvms
+    #   namespace: openshift-storage
+    #   path: charts/lvms
 
-    rag-llm-frontend:
-      name: rag-llm-frontend
-      namespace: rag-llm-cpu
-      repoURL: https://github.com/validatedpatterns-sandbox/rag-llm-demo-ui
-      chartVersion: main
-      path: helm
-      extraValueFiles:
-        - $patternref/overrides/rag-llm-frontend-values.yaml
+    # rag-llm-frontend:
+    #   name: rag-llm-frontend
+    #   namespace: rag-llm-cpu
+    #   repoURL: https://github.com/validatedpatterns-sandbox/rag-llm-demo-ui
+    #   chartVersion: main
+    #   path: helm
+    #   extraValueFiles:
+    #     - $patternref/overrides/rag-llm-frontend-values.yaml
 
-    vector-db:
-      name: vector-db
-      namespace: rag-llm-cpu
-      chart: vector-db
-      chartVersion: 0.1.*
-      extraValueFiles:
-        - $patternref/overrides/vector-db-values.yaml
+    # vector-db:
+    #   name: vector-db
+    #   namespace: rag-llm-cpu
+    #   chart: vector-db
+    #   chartVersion: 0.1.*
+    #   extraValueFiles:
+    #     - $patternref/overrides/vector-db-values.yaml
 
-    llm-inference-service:
-      name: llm-inference-service
-      namespace: rag-llm-cpu
-      chart: llm-inference-service
-      chartVersion: 0.3.*
+    # llm-inference-service:
+    #   name: llm-inference-service
+    #   namespace: rag-llm-cpu
+    #   chart: llm-inference-service
+    #   chartVersion: 0.3.*
 
-    gpt-oss-inference-service:
-      name: gpt-oss-inference-service
-      namespace: rag-llm-cpu
-      path: charts/inference-service
-      extraValueFiles:
-        - $patternref/overrides/gpt-oss-inference-service-values.yaml
+    # gpt-oss-inference-service:
+    #   name: gpt-oss-inference-service
+    #   namespace: rag-llm-cpu
+    #   path: charts/inference-service
+    #   extraValueFiles:
+    #     - $patternref/overrides/gpt-oss-inference-service-values.yaml
