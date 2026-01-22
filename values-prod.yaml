@@ -4,9 +4,9 @@ clusterGroup:
   namespaces:
     - rag-llm-cpu:
       labels:
-        pod-security.kubernetes.io/enforce: privileged --overwrite
-        openshift.io/cluster-monitoring: true --overwrite
-        opendatahub.io/application-namespace: true --overwrite
+        pod-security.kubernetes.io/enforce: "privileged --overwrite"
+        openshift.io/cluster-monitoring: "true --overwrite"
+        opendatahub.io/application-namespace: "true --overwrite"
     - vault
     - golang-external-secrets
     - openshift-nfd
