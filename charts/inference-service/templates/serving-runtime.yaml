@@ -41,6 +41,8 @@ spec:
           value: all
         - name: VLLM_TARGET_DEVICE
           value: cuda
+        - name: LD_LIBRARY_PATH
+          value: /usr/local/nvidia/lib:/usr/local/nvidia/lib64
       ports:
         - containerPort: {{ .Values.servingRuntime.port }}
           protocol: TCP

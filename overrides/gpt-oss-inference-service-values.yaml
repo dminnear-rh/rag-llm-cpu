@@ -19,3 +19,4 @@ servingRuntime:
     - --model_id=openai/gpt-oss-120b
     - --tensor-parallel-size=2
     - --device=cuda
+    - --enforce-eager
