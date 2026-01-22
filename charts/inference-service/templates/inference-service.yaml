@@ -13,6 +13,7 @@ metadata:
     opendatahub.io/dashboard: 'true'
 spec:
   predictor:
+    runtimeClassName: nvidia
     maxReplicas: {{ .Values.inferenceService.maxReplicas }}
     minReplicas: {{ .Values.inferenceService.minReplicas }}
     {{- with .Values.inferenceService.affinity }}

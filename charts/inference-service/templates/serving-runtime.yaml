@@ -31,12 +31,14 @@ spec:
             secretKeyRef:
               name: huggingface-secret
               key: token
-        - name: VLLM_DEVICE
-          value: cuda
-        - name: VLLM_CACHE
-          value: /tmp/vllm_cache
         - name: VLLM_CONFIG_ROOT
           value: /tmp/vllm
+        - name: VLLM_CACHE
+          value: /tmp/vllm_cache
+        - name: NVIDIA_VISIBLE_DEVICES
+          value: all
+        - name: NVIDIA_DRIVER_CAPABILITIES
+          value: all
       ports:
         - containerPort: {{ .Values.servingRuntime.port }}
           protocol: TCP
