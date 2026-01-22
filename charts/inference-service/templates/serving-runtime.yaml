@@ -33,7 +33,7 @@ spec:
               key: token
         - name: VLLM_CONFIG_ROOT
           value: /tmp/vllm
-        - name: VLLM_CACHE
+        - name: VLLM_CACHE_ROOT
           value: /tmp/vllm_cache
         - name: NVIDIA_VISIBLE_DEVICES
           value: all
