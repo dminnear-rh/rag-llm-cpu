@@ -6,6 +6,8 @@ metadata:
     argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"
     openshift.io/display-name: {{ .Values.servingRuntime.name }}
+    opendatahub.io/accelerator-name: nvidia-gpu
+    opendatahub.io/recommended-accelerators: '["nvidia.com/gpu"]'
   labels:
     opendatahub.io/dashboard: "true"
 spec:
