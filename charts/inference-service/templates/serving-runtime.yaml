@@ -1,0 +1,40 @@
+apiVersion: serving.kserve.io/v1alpha1
+kind: ServingRuntime
+metadata:
+  name: {{ .Values.servingRuntime.name }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"
+    openshift.io/display-name: {{ .Values.servingRuntime.name }}
+  labels:
+    opendatahub.io/dashboard: "true"
+spec:
+  annotations:
+    prometheus.io/path: /metrics
+    prometheus.io/port: {{ .Values.servingRuntime.port | quote}}
+  containers:
+    - name: kserve-container
+      image: {{ .Values.servingRuntime.image }}
+      args:
+        - --host
+        - 0.0.0.0
+        - --port
+        - {{ .Values.servingRuntime.port | quote}}
+      {{- with .Values.servingRuntime.args }}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      env:
+        - name: HF_HOME
+          value: /tmp/hf_home
+        - name: HF_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: huggingface-secret
+              key: token
+      ports:
+        - containerPort: {{ .Values.servingRuntime.port }}
+          protocol: TCP
+  multiModel: false
+  supportedModelFormats:
+    - autoSelect: true
+      name: {{ .Values.servingRuntime.modelFormat }}

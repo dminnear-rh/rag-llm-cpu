@@ -1,0 +1,22 @@
+inferenceService:
+  name: cpu-inference-service
+  minReplicas: 1
+  maxReplicas: 1
+  resources:
+    requests:
+      cpu: "4"
+      memory: 8Gi
+    limits:
+      cpu: "8"
+      memory: 16Gi
+  affinity: {}
+  tolerations: {}
+
+servingRuntime:
+  name: cpu-runtime
+  port: 8080
+  image: ghcr.io/ggml-org/llama.cpp:server
+  modelFormat: llama.cpp
+  args:
+    - --model
+    - /models/mistral-7b-instruct-v0.2.Q5_0.gguf

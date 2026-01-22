@@ -1,0 +1,33 @@
+apiVersion: serving.kserve.io/v1beta1
+kind: InferenceService
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-options: "SkipDryRunOnMissingResource=true"
+    openshift.io/display-name: {{ .Values.inferenceService.name }}
+    serving.knative.openshift.io/enablePassthrough: 'true'
+    sidecar.istio.io/inject: 'true'
+    sidecar.istio.io/rewriteAppHTTPProbers: 'true'
+  name: {{ .Values.inferenceService.name }}
+  labels:
+    opendatahub.io/dashboard: 'true'
+spec:
+  predictor:
+    maxReplicas: {{ .Values.inferenceService.maxReplicas }}
+    minReplicas: {{ .Values.inferenceService.minReplicas }}
+    {{- with .Values.inferenceService.affinity }}
+    affinity:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
+    {{- with .Values.inferenceService.tolerations }}
+    tolerations:
+      {{- toYaml . | nindent 6 }}
+    {{- end }}
+    model:
+      modelFormat:
+        name: {{ .Values.servingRuntime.modelFormat }}
+      {{- with .Values.inferenceService.resources }}
+      resources:
+        {{- toYaml . | nindent 8}}
+      {{- end }}
+      runtime: {{ .Values.servingRuntime.name }}

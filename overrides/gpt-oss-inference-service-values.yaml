@@ -13,42 +13,7 @@ inferenceService:
 servingRuntime:
   name: gpt-oss-runtime
   image: kserve/huggingfaceserver:latest
-  modelFormat: huggingface
+  modelFormat: vLLM
   args:
-    - --model_dir=/models
-
-model:
-  repository: openai/gpt-oss-120b
-  files:
-    - model.safetensors.index.json
-    - model-00000-of-00014.safetensors
-    - model-00001-of-00014.safetensors
-    - model-00002-of-00014.safetensors
-    - model-00003-of-00014.safetensors
-    - model-00004-of-00014.safetensors
-    - model-00005-of-00014.safetensors
-    - model-00006-of-00014.safetensors
-    - model-00007-of-00014.safetensors
-    - model-00008-of-00014.safetensors
-    - model-00009-of-00014.safetensors
-    - model-00010-of-00014.safetensors
-    - model-00011-of-00014.safetensors
-    - model-00012-of-00014.safetensors
-    - model-00013-of-00014.safetensors
-    - model-00014-of-00014.safetensors
-    - config.json
-    - generation_config.json
-    - tokenizer.json
-    - tokenizer_config.json
-    - special_tokens_map.json
-    - chat_template.jinja
-  storage:
-    mountPath: /models
-  downloader:
-    image: registry.access.redhat.com/ubi10/python-312-minimal:10.0
-
-dsc:
-  initialize: false
-
-externalSecret:
-  create: false
+    - --model_name=gpt-oss-120b
+    - --model_id=openai/gpt-oss-120b
