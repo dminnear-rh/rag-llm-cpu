@@ -18,3 +18,4 @@ servingRuntime:
     - --model_name=gpt-oss-120b
     - --model_id=openai/gpt-oss-120b
     - --tensor-parallel-size=2
+    - --device=cuda
